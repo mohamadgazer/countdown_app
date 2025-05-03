@@ -1,18 +1,42 @@
-import 'dart:ui';
+// ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'package:flutter/material.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 
-class CountdownEvent {
+part 'counter_down_event.g.dart';
+
+@HiveType(typeId: 0)
+class CountdownEvent extends HiveObject {
+  @HiveField(0)
   final int id;
-  final String title;
-  final DateTime eventDateTime;
-  final String? emoji;
-  final String? backgroundImagePath;
-  final Color? color;
 
-  CountdownEvent(
-      {required this.id,
-      required this.title,
-      required this.eventDateTime,
-      this.emoji,
-      this.backgroundImagePath,
-      this.color});
+  @HiveField(1)
+  final String title;
+
+  @HiveField(2)
+  final DateTime eventDateTime;
+
+  @HiveField(3)
+  final String? emoji;
+
+  @HiveField(4)
+  final String? backgroundImagePath;
+
+  @HiveField(5)
+  final int? colorValue; // هنخزن اللون كـ int
+
+  CountdownEvent({
+    required this.id,
+    required this.title,
+    required this.eventDateTime,
+    this.emoji,
+    this.backgroundImagePath,
+    Color? color,
+  }) : colorValue = color?.value;
+
+  Color? get color => colorValue != null ? Color(colorValue!) : null;
+
+  @override
+  String toString() {
+    return '\nCountdownEvent(id: $id, title: $title, eventDateTime: $eventDateTime, emoji: $emoji, backgroundImagePath: $backgroundImagePath, colorValue: $colorValue)';
+  }
 }
