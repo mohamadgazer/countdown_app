@@ -1,3 +1,5 @@
+// ملف: home_view.dart
+
 import 'package:flutter/material.dart';
 
 class HomeBody extends StatelessWidget {
@@ -5,8 +7,6 @@ class HomeBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Center(
-      child: Text('This is the home body'),
-    );
+    return const Text("moke");
   }
 }

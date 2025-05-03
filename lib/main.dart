@@ -1,5 +1,4 @@
 import 'package:countdown_app/Core/Utils/hive/hive_service.dart';
-import 'package:countdown_app/Core/models/counter_down_event/counter_down_event.dart';
 import 'package:countdown_app/exports.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:path_provider/path_provider.dart';
@@ -12,7 +11,7 @@ Future<void> main() async {
   Hive.init(appDocDir.path);
 
   // Register Hive adapters here
-  Hive.registerAdapter(CountdownEventAdapter());
+  // Hive.registerAdapter(CountdownEventAdapter());
   await HiveService.init();
 
   runApp(const MainApp());

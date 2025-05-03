@@ -1,10 +1,11 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
 part 'counter_down_event.g.dart';
 
 @HiveType(typeId: 0)
-class CountdownEvent {
+class CountdownEvent extends HiveObject {
   @HiveField(0)
   final int id;
 
@@ -33,4 +34,9 @@ class CountdownEvent {
   }) : colorValue = color?.value;
 
   Color? get color => colorValue != null ? Color(colorValue!) : null;
+
+  @override
+  String toString() {
+    return '\nCountdownEvent(id: $id, title: $title, eventDateTime: $eventDateTime, emoji: $emoji, backgroundImagePath: $backgroundImagePath, colorValue: $colorValue)';
+  }
 }
