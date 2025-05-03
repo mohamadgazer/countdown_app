@@ -1,5 +1,5 @@
+import 'package:countdown_app/Core/Utils/constant.dart';
 import 'package:countdown_app/Core/models/counter_down_event/counter_down_event.dart';
-import 'package:countdown_app/constant.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:path_provider/path_provider.dart';
 
