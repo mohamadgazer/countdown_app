@@ -3,6 +3,6 @@ import 'package:meta/meta.dart';
 
 part 'countdown_state.dart';
 
-class CountdownDartCubit extends Cubit<CountdownDartState> {
-  CountdownDartCubit() : super(CountdownDartInitial());
+class CountdownDartCubit extends Cubit<CountdownState> {
+  CountdownDartCubit() : super(CountdownInitial());
 }
