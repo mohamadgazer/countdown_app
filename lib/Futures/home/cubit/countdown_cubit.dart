@@ -1,7 +1,6 @@
-import 'package:bloc/bloc.dart';
 import 'package:countdown_app/Core/Utils/hive/hive_service.dart';
 import 'package:countdown_app/Core/models/counter_down_event/counter_down_event.dart';
-import 'package:meta/meta.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 part 'countdown_state.dart';
 
