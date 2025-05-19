@@ -8,6 +8,8 @@ class CountdownCubit extends Cubit<CountdownState> {
   CountdownCubit() : super(CountdownInitial());
 
   List<CountdownEvent> list = [];
+  CountdownEvent selectedEvent =
+      CountdownEvent(id: -1, title: "NaN", eventDateTime: DateTime(0, 0, 0));
 
   void loadevents() async {
     emit(CountdownLoading());

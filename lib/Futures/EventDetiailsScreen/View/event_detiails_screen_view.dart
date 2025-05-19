@@ -8,7 +8,7 @@ class EventDetiailsScreenView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('EventDetiailsScreen View'),
+        title: const Text('Event Detiails Screen View'),
       ),
       body: const EventDetiailsScreenBody(),
     );

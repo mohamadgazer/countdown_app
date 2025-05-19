@@ -1,6 +1,6 @@
 import 'package:countdown_app/Core/Utils/month_utils.dart';
 import 'package:countdown_app/Core/models/counter_down_event/counter_down_event.dart';
-import 'package:flutter/material.dart';
+import 'package:countdown_app/exports.dart';
 
 class EventListBuilder extends StatelessWidget {
   final List<CountdownEvent> elements;
@@ -15,7 +15,13 @@ class EventListBuilder extends StatelessWidget {
         return Padding(
           padding: const EdgeInsets.all(8.0),
           child: InkWell(
-            onTap: () {},
+            onTap: () {
+              Navigator.push(context, MaterialPageRoute(
+                builder: (context) {
+                  return const EventDetiailsScreenView();
+                },
+              ));
+            },
             child: Card(
               color: index.isEven ? Colors.black38 : Colors.white,
               child: ListTile(
