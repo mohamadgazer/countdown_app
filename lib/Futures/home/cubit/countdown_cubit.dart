@@ -15,19 +15,23 @@ class CountdownCubit extends Cubit<CountdownState> {
     emit(CountdownLoading());
 
     try {
-      await getData();
+      await getDataFromHive();
       emit(LoadEventsSuccess(list: list));
     } catch (e) {
       emit(CountdownFaluir(text: "$e"));
     }
   }
 
-  Future<void> getData() async {
+  Future<void> getDataFromHive() async {
     list = [];
     list = HiveService.eventsBox.values.map(
       (e) {
         return e;
       },
     ).toList();
+  }
+
+  Future<void> getEventFormUi(CountdownEvent event) async {
+    selectedEvent = event;
   }
 }
