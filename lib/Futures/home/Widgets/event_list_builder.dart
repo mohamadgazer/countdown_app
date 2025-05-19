@@ -1,6 +1,8 @@
 import 'package:countdown_app/Core/Utils/month_utils.dart';
 import 'package:countdown_app/Core/models/counter_down_event/counter_down_event.dart';
+import 'package:countdown_app/Futures/home/cubit/countdown_cubit.dart';
 import 'package:countdown_app/exports.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class EventListBuilder extends StatelessWidget {
   final List<CountdownEvent> elements;
@@ -16,6 +18,7 @@ class EventListBuilder extends StatelessWidget {
           padding: const EdgeInsets.all(8.0),
           child: InkWell(
             onTap: () {
+              context.read<CountdownCubit>().getEventFormUi(elements[index]);
               Navigator.push(context, MaterialPageRoute(
                 builder: (context) {
                   return const EventDetiailsScreenView();
