@@ -14,30 +14,33 @@ class EventListBuilder extends StatelessWidget {
       itemBuilder: (context, index) {
         return Padding(
           padding: const EdgeInsets.all(8.0),
-          child: Card(
-            color: index.isEven ? Colors.black38 : Colors.white,
-            child: ListTile(
-              trailing: Text(
-                elements[index].eventDateTime.day.toString(),
-                style: const TextStyle(fontSize: 20),
-              ),
-              title: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(elements[index].title),
-                  Row(
-                    children: [
-                      Text(
-                        "${getMonthName(elements[index].eventDateTime.month)}, ${elements[index].eventDateTime.day.toString()}",
-                        style: const TextStyle(fontSize: 20),
-                      ),
-                    ],
-                  )
-                ],
-              ),
-              leading: Text(
-                elements[index].emoji.toString(),
-                style: const TextStyle(fontSize: 30),
+          child: InkWell(
+            onTap: () {},
+            child: Card(
+              color: index.isEven ? Colors.black38 : Colors.white,
+              child: ListTile(
+                trailing: Text(
+                  elements[index].eventDateTime.day.toString(),
+                  style: const TextStyle(fontSize: 20),
+                ),
+                title: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(elements[index].title),
+                    Row(
+                      children: [
+                        Text(
+                          "${getMonthName(elements[index].eventDateTime.month)}, ${elements[index].eventDateTime.day.toString()}",
+                          style: const TextStyle(fontSize: 20),
+                        ),
+                      ],
+                    )
+                  ],
+                ),
+                leading: Text(
+                  elements[index].emoji.toString(),
+                  style: const TextStyle(fontSize: 30),
+                ),
               ),
             ),
           ),
