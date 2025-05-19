@@ -7,12 +7,25 @@ part 'countdown_state.dart';
 class CountdownCubit extends Cubit<CountdownState> {
   CountdownCubit() : super(CountdownInitial());
 
-  List<CountdownEvent> list = HiveService.eventsBox.values.map(
-    (e) {
-      return e;
-    },
-  ).toList();
-  void loadevents() {
-    emit(LoadEventsSuccess(list: list));
+  List<CountdownEvent> list = [];
+
+  void loadevents() async {
+    emit(CountdownLoading());
+
+    try {
+      await getData();
+      emit(LoadEventsSuccess(list: list));
+    } catch (e) {
+      emit(CountdownFaluir(text: "$e"));
+    }
+  }
+
+  Future<void> getData() async {
+    list = [];
+    list = HiveService.eventsBox.values.map(
+      (e) {
+        return e;
+      },
+    ).toList();
   }
 }

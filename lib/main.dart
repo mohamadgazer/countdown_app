@@ -1,5 +1,7 @@
 import 'package:countdown_app/Core/Utils/hive/hive_service.dart';
+import 'package:countdown_app/Futures/home/cubit/countdown_cubit.dart';
 import 'package:countdown_app/exports.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:path_provider/path_provider.dart';
 
@@ -22,10 +24,13 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      routes: routes,
-      home: const HomeView(),
+    return BlocProvider(
+      create: (context) => CountdownCubit()..loadevents(),
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        routes: routes,
+        home: const HomeView(),
+      ),
     );
   }
 }
